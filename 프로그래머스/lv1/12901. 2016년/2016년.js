@@ -12,3 +12,4 @@ function solution(a, b) {
     answer = (dayNum % 7 ) === 0 ? day[6] : day[(dayNum % 7 )-1]
     return answer
 }
+
