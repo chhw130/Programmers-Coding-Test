@@ -4,7 +4,7 @@ function solution(cards1, cards2, goal) {
     
     for(data of goal){
         if(cards1[0] !== data && cards2[0] !== data){
-            return answer = "No"
+            return "No"
         }
         if(cards1[0] === data){
             cards1.shift()
