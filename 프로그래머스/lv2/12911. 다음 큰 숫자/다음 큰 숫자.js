@@ -13,7 +13,7 @@ function solution(n) {
     let answer = 0
     const initOne = checkOne(n)
     while(true){
-        n++
+        ++n
         if (initOne === checkOne(n)){
             break;
             }
