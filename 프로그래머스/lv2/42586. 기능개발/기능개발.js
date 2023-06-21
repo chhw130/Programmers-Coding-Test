@@ -8,7 +8,7 @@ function solution(progresses, speeds) {
        day.push(Math.ceil(progresses[i]/speeds[i]))
     }
     let maxday = day[0]
-    for(i = 0, j = 0 ; i < day.length ; i++){
+    for(i = 0; i < day.length ; i++){
         if(maxday >= day[i]){
             count++
             if(i === day.length-1){
