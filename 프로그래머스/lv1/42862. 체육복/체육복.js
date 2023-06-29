@@ -1,12 +1,12 @@
 function solution(n, lost, reserve) {
-    var answer = n-lost.length;
-    
-    
-    let lostItem=lost.filter((l)=>!reserve.includes(l));
-    reserve=reserve.filter((r)=>!lost.includes(r));
+    var answer = 0;
+    answer = n-lost.length
+    let lostItem=lost.filter((e)=>
+                             !reserve.includes(e));
+    reserve=reserve.filter((e)=>
+                           !lost.includes(e));
     answer+=lost.length-lostItem.length;
-    console.log(lostItem)
-    console.log(reserve)
+    
     
 //     let datas = lost.concat(reserve)
 //     datas = datas.sort((a,b)=>
@@ -25,15 +25,15 @@ function solution(n, lost, reserve) {
 
     for(i of lostItem){
          if(reserve.includes(i-1)){
-            reserve=reserve.filter((r)=>r!==i-1);
+            reserve=reserve.filter((e)=>e!==i-1);
             answer++;
         }
         else if(reserve.includes(i+1)){
-            reserve=reserve.filter((r)=>r!==i+1);
+            reserve=reserve.filter((e)=>e!==i+1);
             answer++;
         }
     }
-    
+    console.log(reserve)
    // for(i of lost){ 
    //     if(datas.includes(i-1)){
    //         datas.splice(datas.indexOf(i-1),2)
