@@ -2,13 +2,7 @@ function solution(clothes) {
     var answer = 1
     const object = {}
     for(clothe of clothes){
-        if(!object[clothe[1]]){
-             object[clothe[1]] =  0
-            object[clothe[1]] += 1
-            
-        }else{
-            object[clothe[1]] += 1
-        }
+       object[clothe[1]] = (object[clothe[1]] || 0) + 1
       
     }
     
