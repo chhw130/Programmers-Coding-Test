@@ -2,16 +2,12 @@ function solution(N, stages) {
     var answer = [];
     const stageObj = {}
     let people = stages.length
-    
-    
-  
-    
+
     stages.forEach(stage => {
 
         if(stage > N) return
         return stageObj[stage] = (stageObj[stage] || 0)  + 1
     })
-    
     
     for(let i = 1 ; i <= N ; i++){
         const stagePeople = stageObj[i]
