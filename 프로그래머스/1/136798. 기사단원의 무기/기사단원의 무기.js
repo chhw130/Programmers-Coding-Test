@@ -1,19 +1,12 @@
 function solution(number, limit, power) {
-    var answer = 0;
-    
-    for(let i = 2 ; i <= number ; i++ ){
-        let temp = 1
-        for(let j = 1 ; j <= Math.floor(i/2) ; j++){
-            
-            if(i % j === 0) temp++
+    const numberArray = Array(number).fill(0).map((_,idx)=>idx+1)
+    const answer = numberArray.map(number=>{
+        let divideCount = 0
+        for(let i=1;i<Math.sqrt(number);i++){
+            (number % i === 0) && divideCount++
         }
-        
-        temp = temp > limit ? power : temp
-        answer += temp
-    }
-    
-    
-    
-    
-    return answer + 1;
+        divideCount = (divideCount * 2 + Number.isInteger(Math.sqrt(number)))
+        return divideCount > limit ? power : divideCount
+    }).reduce((acc,val)=>acc+val,0)
+    return answer;
 }
