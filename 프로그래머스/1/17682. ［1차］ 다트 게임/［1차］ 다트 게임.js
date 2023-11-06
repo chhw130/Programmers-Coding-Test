@@ -32,20 +32,16 @@ const calculateScore = (num, string, resultScore, i) => {
 }
 
 const resultFunction = (arr) => {
-    let result = 0
+    
     const resultScore = []
     for(let i = 0 ; i < arr.length ; i++){
         const [num, string] = arr[i]
         const [score , resultArr] = calculateScore(num, string, resultScore, i)
-        result += score
     }
-    
-    return result = resultScore.reduce((a,b) => a+b, 0)
-    
+    return resultScore.reduce((a,b) => a+b, 0)
 }
 
 function solution(dartResult) {
-    var answer = 0;
     const arr = []
 
     let numEle = ""
@@ -54,8 +50,6 @@ function solution(dartResult) {
     
     for(let i = 0 ; i < dartResult.length ; i++){
         const element = dartResult[i]
-        
-        
         parseInt(element) || parseInt(element) === 0 ? numEle += element : stringEle += element
         
         if(!parseInt(element) && (parseInt(dartResult[i+1]) || dartResult[i+1] === "0")){
@@ -67,8 +61,5 @@ function solution(dartResult) {
         }
     }
     
-    answer = resultFunction(arr)
-    
-    
-    return answer;
+    return resultFunction(arr)
 }
