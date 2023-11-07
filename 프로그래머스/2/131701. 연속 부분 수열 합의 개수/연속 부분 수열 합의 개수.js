@@ -1,6 +1,9 @@
 function solution(elements) {
     var answer = [];
     const circleArr = [...elements, ...elements]
+    const set = new Set()
+    
+    
     
     for(let i = 0 ; i < elements.length ; i++){
         
@@ -10,11 +13,11 @@ function solution(elements) {
         for(let j = i ; j < elements.length + i ; j++){
             const circleElement = circleArr[j]
             sum += circleElement
-            answer.push(sum)
+            set.add(sum)
         }
     }
     
-    answer = [... new Set(answer)].length
+//     answer = [... new Set(answer)].length
     
-    return answer;
+    return set.size;
 }
