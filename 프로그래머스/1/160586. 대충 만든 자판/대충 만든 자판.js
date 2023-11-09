@@ -3,7 +3,6 @@ function solution(keymap, targets) {
     
     const key = {}
     
-    // const abc =  keymap.map((e) => [...new Set(e.split(""))]) 
     
     for(let i = 0 ; i < keymap.length ; i++){
         for(let j = 0 ; j < keymap[i].length ; j++){
