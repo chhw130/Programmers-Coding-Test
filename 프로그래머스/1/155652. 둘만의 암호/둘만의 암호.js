@@ -18,11 +18,8 @@ function solution(s, skip, index) {
             }
             indexArr.push(targetEle)
         }
-        
         answer += indexArr[index-1]
-        // const skippIdx = alphabetArr.slice(alphabetIdx + 1, alphabetIdx + 6)
     }
-    
     
     return answer;
 }
