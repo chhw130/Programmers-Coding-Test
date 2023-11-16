@@ -2,9 +2,7 @@ function solution(id_list, report, k) {
     var answer = [];
     const reportObj = {}
     const reportCountObj = {}
-    
     const newReport = report.map(e => e.split(" "))
-    
     
     for(let i = 0 ; i < newReport.length ; i++){
         const [reportPerson, targetPerson] = newReport[i]
@@ -12,11 +10,8 @@ function solution(id_list, report, k) {
         if(reportObj[reportPerson]?.includes(targetPerson)) continue
         
         reportCountObj[targetPerson] = reportCountObj[targetPerson] + 1 || 1
-        
         !reportObj[reportPerson] ? reportObj[reportPerson] = [targetPerson] : reportObj[reportPerson].push(targetPerson)
     }
-    
-    
     
     id_list.map((ele) => {
         const reportArr = reportObj[ele]
@@ -27,8 +22,5 @@ function solution(id_list, report, k) {
         }
         answer.push(temp)
     })
-    
-    
-    
     return answer;
 }
