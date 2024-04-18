@@ -1,13 +1,19 @@
 function solution(d, budget) {
     var answer = 0;
-    const budgetArr = d.sort((a,b) => a-b)
-    let sum = 0
-   
-    while(sum <= budget){
-        sum += budgetArr[answer]
+    
+    const sortD = d.sort((a,b) => a-b)
+    
+    
+    for(let i = 0 ; i < sortD.length ; i++){
+        const payment = sortD[i]
+        
+        budget -= payment
+        if(budget < 0){
+            return answer
+        }
+      
         answer++
     }
-   
     
-    return answer-1;
+    return answer;
 }
