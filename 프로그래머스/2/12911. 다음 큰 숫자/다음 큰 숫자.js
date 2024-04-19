@@ -1,23 +1,43 @@
-function checkOne(number){
-    let oneCount = 0
-    let data = [...(number.toString(2))]
-    data.map((e)=>{
-        if (e === "1"){
-            oneCount++
-        }
-    })
-    return oneCount
+
+const mathOneCount = (number) => {
+     const newOneCount = number.reduce((acc, cur) =>{
+       if(cur === "1"){
+          return acc+= 1
+       } else{
+           return acc
+       }
+    },0)
+     
+     return newOneCount
 }
 
+
 function solution(n) {
-    let answer = 0
-    const initOne = checkOne(n)
+    var answer = 0;
+    
+    const num = [...n.toString(2)]
+    const oneCount = num.reduce((acc, cur) =>{
+       if(cur === "1"){
+          return acc+= 1
+       } else{
+           return acc
+       }
+    },0)
+    
+    
     while(true){
-        ++n
-        if (initOne === checkOne(n)){
-            break;
-            }
+        n++
+        if(oneCount === mathOneCount([...n.toString(2)])){
+            break
+        }
+        
+        
         
     }
-    return n
+    
+    
+    
+    
+    
+    return answer = n;
 }
