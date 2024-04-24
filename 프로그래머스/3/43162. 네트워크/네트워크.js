@@ -1,20 +1,27 @@
 function solution(n, computers) {
     var answer = 0;
-    let array = new Array(n).fill(false)
-       for(let i=0;i<n;i++){
-           if(!array[i]){
-                dfs(i)
-               answer++
-           }
-       }
-    function dfs(num){
-        if(!array[num]){
-                   array[num]=true;
-        for(let i=0; i<n ;i++){
-            if(computers[num][i] === 1 && !array[i]) 
-               dfs(i)
+    
+    const arr = Array(n).fill(0)
+    
+    const dfs = (node) => {
+        arr[node] = 1
+        
+        for(let j = 0 ; j < n ; j++){
+            const ele = computers[node][j]
+            if(ele && !arr[j] ) {
+                console.log(arr, node ,j)    
+                dfs(j)
             }
         }
     }
-    return answer
+    
+    for(let i = 0 ; i < n ; i++){
+        if(arr[i]) continue
+        dfs(i)
+        answer++
+    }
+    
+
+    
+    return answer;
 }
