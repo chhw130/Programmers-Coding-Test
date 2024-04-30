@@ -7,9 +7,7 @@ function solution(n) {
         arr[i+2] = (arr[i] + arr[i+1]) % 1234567
     }
     
-    console.log(arr[n] & 1234567)
     
-    answer = arr[n] % 1234567
     
-    return answer;
+    return answer = arr[n];
 }
