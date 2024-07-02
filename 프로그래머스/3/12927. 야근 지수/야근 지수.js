@@ -7,19 +7,14 @@ function solution(n, works) {
     while(n > 0){
         const maxEle = sortWorks[0] - 1
         
-        
         for(let i = 0 ; i < sortWorks.length ; i++ ){
             const targetEle = sortWorks[i]
-            
             if(targetEle >= maxEle){
                 n--
                 sortWorks[i]--
-                
                 if(n === 0) break
             }
-            
         }
-        
     }
     
     
