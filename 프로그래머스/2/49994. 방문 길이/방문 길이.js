@@ -28,7 +28,6 @@ function solution(dirs) {
     var answer = 0;
     const posArr = [[0,0]]
     const set = new Set()
-    const arr = []
     for(let i = 0 ; i < dirs.length ; i ++){
         const currentPos = posArr[i]
         const newPos = goNewPos(currentPos, dirs[i])
@@ -36,18 +35,11 @@ function solution(dirs) {
         
         if(newPos === currentPos) continue
         
-        set.add(`${currentPos}  ${newPos}`)
-        set.add(`${newPos}  ${currentPos}`)
-        
-        arr.push([newPos, currentPos])
-        
+        set.add(`${currentPos} , ${newPos}`)
+        set.add(`${newPos} , ${currentPos}`)
     }
     
-
     
-    
-    console.log(arr)
-    console.log(set)
     
     return answer = set.size / 2
 }
