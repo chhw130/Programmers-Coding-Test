@@ -1,9 +1,16 @@
 function solution(s) {
     var answer = '';
-    let format = s.split(" ")
-    format = format.map(word => word.split(""))
-    const upper = format.map(word => word.map((ele, idx) => idx % 2 !== 1 ? ele.toUpperCase() : ele.toLowerCase() ).join("")).join(" ")
+    
+    const arr = s.split(" ")
     
     
-    return upper
+    const newArr = arr.map(word => {
+      return  word.split('').map((ele,idx) => idx % 2 !== 0 ? ele.toLowerCase() : ele.toUpperCase()).join("")
+    })
+    
+    answer = newArr.join(" ")
+    
+   
+    
+    return answer;
 }
