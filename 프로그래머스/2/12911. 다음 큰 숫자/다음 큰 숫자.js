@@ -1,43 +1,26 @@
-
-const mathOneCount = (number) => {
-     const newOneCount = number.reduce((acc, cur) =>{
-       if(cur === "1"){
-          return acc+= 1
-       } else{
-           return acc
-       }
-    },0)
-     
-     return newOneCount
-}
-
-
 function solution(n) {
-    var answer = 0;
-    
-    const num = [...n.toString(2)]
-    const oneCount = num.reduce((acc, cur) =>{
-       if(cur === "1"){
-          return acc+= 1
-       } else{
-           return acc
-       }
-    },0)
-    
+    var answer = n;
+    const binaryN = n.toString(2)
     
     while(true){
-        n++
-        if(oneCount === mathOneCount([...n.toString(2)])){
-            break
-        }
+    answer+=1
+    const binaryAns = answer.toString(2)
+    
+    const nLength = binaryN.split("").filter(ele => ele === '1').length;
         
+    const ansLength = binaryAns.split("").filter(ele => ele === '1').length;
+      
         
+    if(nLength === ansLength){
+        break
+    }
         
     }
     
     
     
+
     
     
-    return answer = n;
+    return answer;
 }
