@@ -1,32 +1,28 @@
 function solution(people, limit) {
     var answer = 0;
     
-    people.sort((a,b) => b-a)
-    
+    people.sort((a,b) => a-b)
+   
     let left = 0
-    let right = people.length - 1
+    let right = people.length -1
     
     while(left <= right){
+        const leftPeople = people[left]
+        const rightPeople = people[right]
         
-        const people1 = people[left]
-        const people2 = people[right]
-        
-        if(people1 + people2 <= limit){
-            left++
-            right--
-            
+        if(leftPeople + rightPeople > limit){
+            right -= 1
             answer++
             continue
         }
         
-        left++
-        
+        left += 1
+        right -= 1
         answer++
-      
         
+       
     }
-    
-    
+       
     
     return answer;
 }
