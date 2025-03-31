@@ -2,14 +2,17 @@ function solution(arr)
 {
     var answer = [];
 
+  
+    
     for(let i = 0 ; i < arr.length ; i ++){
-        if(answer[answer.length -1] === arr[i]){
-            
-        }else{
-            answer.push(arr[i])
+        const ele = arr[i]
+        if(answer.at(-1) === ele){
+            continue
         }
+        answer.push(ele)
     }
-   
+    
+    
     
     return answer;
 }
