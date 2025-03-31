@@ -1,30 +1,33 @@
 function solution(progresses, speeds) {
     var answer = [];
-    let temp = 0
     
-    let data = 2
+    let progressArr = [...progresses]
     
-    while(progresses.length > 0){
+    
+    while(progressArr.length){
+        const firstStep = Math.ceil((100 - progressArr[0])/ speeds[0])
         
-        const first = progresses[0]
+        progressArr = progressArr.map((progress,idx)=> progress + firstStep *speeds[idx])
         
-        const toDo = Math.ceil((100 - first) / speeds[0])
-        
-        
-        progresses = progresses.map((ele, idx) => {
-            return ele + speeds[idx] * toDo
-        } )
+        let cnt = 0
         
         
-        while(progresses[0] >= 100){
-            progresses.shift()
-            speeds.shift()
-            temp++
+        for(let i = 0 ; i < progressArr.length ; i++){
+            const progress = progressArr[i]
+            if(progress >= 100){
+                progressArr.shift()
+                speeds.shift()
+                cnt++
+                i--
+                continue
+            }
+            break
         }
-
-        answer.push(temp)
-        temp = 0
+            answer.push(cnt)
+        
+        
     }
+    
     
     return answer;
 }
