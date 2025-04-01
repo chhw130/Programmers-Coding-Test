@@ -1,17 +1,33 @@
 function solution(s){
     var answer = true;
 
-    const stack = []
+    s = s.split('')
+    let openCnt = 0
     
-    for(let i = 0 ; i < s.length ; i++){
-        if(stack[stack.length - 1] + s[i] === "()"){
-            stack.pop()
-        }else{
-            stack.push(s[i])
+    for(let i = 0 ; i < s.length  ; i++){
+        
+        const ele = s[i]
+        
+        if(ele === '('){
+            openCnt++
+            continue
         }
         
-    }
+        if(!openCnt){
+            return false
+        }
+        
+        if(ele === ')'){
+            openCnt--
+            continue
+        }
 
+        
+        
+    }
     
-    return !stack.length ? true : false;
+    
+    
+
+    return openCnt === 0
 }
