@@ -1,18 +1,24 @@
 function solution(name, yearning, photo) {
     var answer = [];
-    const scoreTable = {}
-    name.forEach((n,i) => scoreTable[n] = yearning[i])
     
-    for(arr of photo){
-        let score = 0
-        for(name of arr){
-            if(scoreTable[name]){
-                score += scoreTable[name]
-              
-            }
-        }
-        answer.push(score)
+    const scoreMap = {};
+    
+    for(let i = 0 ; i < name.length ; i++){
+        const curName = name[i]
+        const curYearning = yearning[i]
+        scoreMap[curName] = curYearning
     }
+    
+    answer = photo.map(pho => {
+        return pho.reduce((acc,cur) => {
+            if(!scoreMap[cur]){
+                return acc
+            }
+            acc += scoreMap[cur]
+            return acc
+        }, 0)
+    })
+    
     
     return answer;
 }
