@@ -1,26 +1,20 @@
 function solution(participant, completion) {
     var answer = '';
     
-    const participantObj = {}
+    const participantMap = {}
     
-    participant.forEach(part => {
-        participantObj[part] = participantObj[part] ? participantObj[part] +1 : 1
-    })
-    
-    completion.forEach(comp => {
-        participantObj[comp] = participantObj[comp] - 1
+    participant.forEach((part) => {
+        participantMap[part] = (participantMap[part] || 0) + 1
     })
     
     
-    const result = Object.keys(participantObj);
+    completion.forEach((comp) => {
+        participantMap[comp] = participantMap[comp] - 1
+    })
     
-    for(let i = 0 ;  i < result.length ; i++){
-        if(participantObj[result[i]]){
-            answer = result[i]
-            break
-        }
-    }
-    
+    answer = Object.entries(participantMap).find(([part, cnt]) => {
+        return cnt > 0
+    })[0]
     
     return answer;
 }
